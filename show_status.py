@@ -101,11 +101,10 @@ def show_error(error="Undefined Error!"):
 
 
 # -------------------
-# Now, onto the main event!
+# Now, onto the main event
 # -------------------
 if __name__ == "__main__":
-    os.system('clear')
-    sys.stdout.write('-- Starting git status...\n')
+    os.system('')
     os.environ['LANGUAGE'] = 'en_US:en'
     os.environ['LANG'] = 'en_US.UTF-8'
 
@@ -128,7 +127,7 @@ if __name__ == "__main__":
             if False == args.verbose:
 
                 j = out.find('On branch')
-                k = out.find('\n', j)
+                k = out.find('\\n')
                 branch = str(out)[j+10:k]
                 branchColor = bcolors.WARNING
 
@@ -136,7 +135,7 @@ if __name__ == "__main__":
                     branchColor = bcolors.OKGREEN
 
                 branch = "[ " + branchColor + \
-                    branch.ljust(15) + bcolors.ENDC + " ]"
+                    branch.ljust(6) + bcolors.ENDC + " ]"
 
                 if -1 != out.find('nothing'):
                     result = bcolors.OKGREEN + "No Changes" + bcolors.ENDC
@@ -163,7 +162,7 @@ if __name__ == "__main__":
                     result = bcolors.FAIL + "Changes" + bcolors.ENDC
 
                 # Write to screen
-                sys.stdout.write("-- " + bcolors.OKBLUE + infile.ljust(55) +
+                sys.stdout.write(bcolors.OKBLUE + infile.ljust(35) +
                                  bcolors.ENDC + branch + " : " + result + "\n")
 
             else:
@@ -179,5 +178,3 @@ if __name__ == "__main__":
 
     if False == gitted:
         show_error("Error: None of those sub directories had a .git file.\n")
-
-    sys.stdout.write("Done\n")
