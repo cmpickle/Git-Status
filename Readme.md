@@ -25,6 +25,7 @@ look to see if there are any changes and let you know. It can also push and
 pull to/from a remote location (like github.com) (but only if there are no
 changes.) Contact cmpickle@gmail.com for any support.
 
+```
 Options:
   -h, --help            show this help message and exit
   -d DIRNAME, --dir=DIRNAME
@@ -33,7 +34,8 @@ Options:
   -r REMOTE, --remote=REMOTE
                         Push to the master (remotename:branchname)
   -p PULL, --pull=PULL  Pull from the master (remotename:branchname)
+```
 
 
--- Warranties/Guarantees --
+## Warranties/Guarantees
 None, you're on your own. If you'd like some help, mail me on cmpickle@gmail.com
