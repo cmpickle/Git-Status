@@ -35,6 +35,7 @@ class bcolors:
     WARNING = '\033[93m'
     FAIL = '\033[91m'
     ENDC = '\033[0m'
+    CYAN = '\033[96m'
 
     def disable(self):
         self.HEADER = ''
@@ -119,23 +120,31 @@ if __name__ == "__main__":
             # Yay, we found one!
             gitted = True
 
+            remote = False
+
             # OK, contains a .git file. Let's descend into it
             # and ask git for a status
-            out = str(subprocess.check_output('cd ' + infile + ' && git status', shell=True))
+            out = subprocess.check_output('cd ' + infile + ' && git status', shell=True).decode("utf-8")
+            
+            remoteBranch = subprocess.check_output('cd ' + infile + ' && git remote', shell=True).decode("utf-8")
+            if (remoteBranch != ''):
+                remote = True
 
             # Mini?
             if False == args.verbose:
 
                 j = out.find('On branch')
-                k = out.find('\\n')
+                k = out.find('\n')
                 branch = str(out)[j+10:k]
-                branchColor = bcolors.WARNING
+                branchColor = bcolors.CYAN
 
                 if branch == 'master':
-                    branchColor = bcolors.OKGREEN
+                    branchColor = bcolors.CYAN
 
-                branch = "[ " + branchColor + \
-                    branch.ljust(6) + bcolors.ENDC + " ]"
+                branch = bcolors.WARNING + "[" + branchColor + branch
+                if(remote):
+                    branch += " ≡"
+                branch += bcolors.WARNING + "]" + bcolors.ENDC
 
                 if -1 != out.find('nothing'):
                     result = bcolors.OKGREEN + "No Changes" + bcolors.ENDC
