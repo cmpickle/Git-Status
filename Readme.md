@@ -1,13 +1,13 @@
---- Get Status ---
+# Get Status
 Ever wanted to get the status of repos in multiple sub directories? Yeah, me 
 too.
 
---- Credit ---
+## Credit
 Mike Pearce is the original author and creator of this project. This is a fork
 that I have made with improvements to the project such as upgrading it to Python3
 and adding features that I wanted. Original repo can be found [here](https://github.com/MikePearce/Git-Status).
 
--- Installation --
+## Installation
 Copy the file to /usr/bin
 
 %> cp show_status /usr/bin (or /usr/sbin)
@@ -16,7 +16,7 @@ Give it execute permissions
 
 %> chmod +x /usr/bin/show_status
 
--- Usage --
+## Usage
 Usage: show_status [options]
 
 Show Status is awesome. If you tell it a directory to look in, it'll scan
