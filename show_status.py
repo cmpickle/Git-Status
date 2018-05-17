@@ -52,7 +52,7 @@ through all the sub dirs looking for a .git directory. When it finds one \
 it'll look to see if there are any changes and let you know. \
 It can also push and pull to/from a remote location (like github.com) \
 (but only if there are no changes.) \
-Contact mike@mikepearce.net for any support.")
+Contact cmpickle@gmail.com for any support.")
 parser.add_argument("-d", "--dir",
                   dest="dirname",
                   action="store",
